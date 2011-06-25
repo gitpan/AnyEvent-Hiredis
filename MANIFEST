@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST
+META.yml
+Makefile.PL
+README
+bin/bench.pl
+dist.ini
+lib/AnyEvent/Hiredis.pm
+t/Redis.pm
+t/basic.t
+t/redis.conf.base
