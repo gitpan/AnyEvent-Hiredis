@@ -4,6 +4,7 @@ META.yml
 Makefile.PL
 README
 bin/bench.pl
+bin/compare.pl
 dist.ini
 lib/AnyEvent/Hiredis.pm
 t/Redis.pm

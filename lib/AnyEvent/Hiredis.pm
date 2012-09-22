@@ -1,4 +1,7 @@
 package AnyEvent::Hiredis;
+BEGIN {
+    $AnyEvent::Hiredis::VERSION = '0.02';
+}
 # ABSTRACT: AnyEvent hiredis API
 use strict;
 use warnings;
@@ -124,21 +127,32 @@ AnyEvent::Hiredis - AnyEvent hiredis API
 C<AnyEvent::Hiredis> is an AnyEvent Redis API that uses the hiredis C client
 library (L<https://github.com/antirez/hiredis>).
 
+=head1 PERFORMANCE
+
+One reason to consider C<AnyEvent::Hiredis> over its pure Perl counterpart
+C<AnyEvent::Redis> is performance.  Here's a head to head comparison of the two
+modules running on general purpose hardware:
+
+                       Rate     ae_redis  ae_hiredis
+    AnyEvent::Redis    7590/s   --        -89%
+    AnyEvent::Hiredis 69400/s   814%      --
+
+Rate here is the number of set operations per second achieved by each module.
+See C<bin/compare.pl> for details.
+
 =head1 METHODS
 
 =head2 new
 
   my $redis = Redis->new; # 127.0.0.1:6379
 
-  my $redis = Redis->new( server => '192.168.0.1', port => '6379');
+  my $redis = Redis->new(server => '192.168.0.1', port => '6379');
 
 =head2 command
 
 C<command> takes an array ref representing a Redis command and a callback.
 When the command has completed the callback is executed and passed the result
 or error.
-
-Ex:
 
   $redis->command( ['SET', $key, 'foo'], sub {
       my ($result, $error) = @_;
