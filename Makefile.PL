@@ -26,8 +26,8 @@ my %WriteMakefileArgs = (
   },
   "DISTNAME" => "AnyEvent-Hiredis",
   "EXE_FILES" => [
-    "bin/bench.pl",
-    "bin/compare.pl"
+    "bin/compare.pl",
+    "bin/bench.pl"
   ],
   "LICENSE" => "perl",
   "NAME" => "AnyEvent::Hiredis",
@@ -41,7 +41,7 @@ my %WriteMakefileArgs = (
     "strict" => 0,
     "warnings" => 0
   },
-  "VERSION" => "0.03",
+  "VERSION" => "0.04",
   "test" => {
     "TESTS" => "t/*.t"
   }

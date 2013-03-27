@@ -3,6 +3,7 @@ MANIFEST
 META.yml
 Makefile.PL
 README
+README.pod
 bin/bench.pl
 bin/compare.pl
 dist.ini
